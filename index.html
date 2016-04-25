@@ -8,10 +8,34 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/container.css">
+    <link type="text/css" href="css/style.css" rel="stylesheet"/>
     <script src="js/jQuery.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSlider.js"></script>
     <script src="js/index.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".bannerbox").touchSlider({
+                flexible : true,
+                speed : 200,
+                paging : $(".btn li"),
+                counter : function (e){
+                    $(".btn li").removeClass("sty").eq(e.current-1).addClass("sty");
+                }
+            });
+
+            $(".bannerbox").bind("mousedown", function() {
+                $dragBln = false;
+            });
+
+            $(".bannerbox").bind("dragstart", function() {
+                $dragBln = true;
+            });
+        });
+    </script>
 </head>
-<body style="position: relative">
+<body>
     <!-- 头部 开始 -->
     <div class="head">
         <div class="headbox2 clf">
@@ -50,13 +74,17 @@
             <a href="javascript:;" class="rightbtn">&gt;</a>
         </div>
         <div class="bannerbox">
-            <a href="javascript:;"></a>
-            <a href="javascript:;"></a>
-            <a href="javascript:;"></a>
-            <a href="javascript:;"></a>
+            <div class="clf">
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </div>
+
         </div>
     </div>
     <!-- banner 结束 -->
+
     <!-- 隐藏图片 结束 -->
     <div class="container-fluid picture">
         <a href="javascript:;" class="col-lg-5 col-sm-10 col-xs-20 "></a>
@@ -67,7 +95,7 @@
     <!-- 隐藏图片 结束 -->
     <!-- 底部 开始 -->
     <div class="container-fluid clf bottom-box">
-        <div class="container bottom clf row">
+        <div class="container bottom clf">
             <div class="col-lg-20 clf">
                 <a href="javascript:;" class="col-lg-4 col-md-4 col-sm-4 col-xs-20">
                     <h3 class="col-xs-10">进购及了解<span>+</span></h3>

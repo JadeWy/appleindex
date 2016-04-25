@@ -15,7 +15,7 @@ $(function(){
     })
     /* 导航 结束 */
 
-    /* banner 开始 */
+    /*/!* banner 开始 *!/
     var banner=$(".bannerbox");
     var bannerF=$(".bannerbox a:first-child");
     //var bannerW=100+"%";
@@ -84,7 +84,7 @@ $(function(){
         $('.btn li').removeClass('sty').eq(next).addClass('sty');
         now=next;
     })
-    /* banner 结束 */
+    /!* banner 结束 *!/*/
 
     /* 底部 开始 */
     var bottom=$(".bottom a");
@@ -93,6 +93,9 @@ $(function(){
     var W=document.documentElement.clientWidth;
     if(W<768){
         $(".btn2").css("display","none");
+    }
+    if(W>768){
+        $(".btn2").css("display","block");
     }
     botS.click(function(){
         W=document.documentElement.clientWidth;
